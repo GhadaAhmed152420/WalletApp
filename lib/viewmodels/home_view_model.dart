@@ -115,7 +115,7 @@ class HomeViewModel {
         left: 8.0,
       ),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Colors.white70,
         borderRadius: BorderRadius.circular(8.0),
       ),
       child: Row(
@@ -160,7 +160,7 @@ class HomeViewModel {
           left: 8.0
       ),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Colors.white70,
         borderRadius: BorderRadius.circular(8.0),
       ),
       child: Row(
