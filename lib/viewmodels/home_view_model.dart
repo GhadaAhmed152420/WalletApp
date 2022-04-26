@@ -108,92 +108,102 @@ class HomeViewModel {
   }
 
   Widget expenseTile(int value, String note) {
-    return Container(
-      padding: const EdgeInsets.all(18.0),
-      margin: const EdgeInsets.only(
-        right: 8.0,
-        left: 8.0,
-      ),
-      decoration: BoxDecoration(
-        color: Colors.white70,
-        borderRadius: BorderRadius.circular(8.0),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Row(
+    return Column(
+      children: [
+        Container(
+          padding: const EdgeInsets.all(18.0),
+          margin: const EdgeInsets.only(
+            right: 8.0,
+            left: 8.0,
+          ),
+          decoration: BoxDecoration(
+            color: Colors.white70,
+            borderRadius: BorderRadius.circular(8.0),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Icon(
-                Icons.arrow_circle_up_outlined,
-                color: Colors.red[700],
-                size: 28.0,
+              Row(
+                children: [
+                  Icon(
+                    Icons.arrow_circle_up_outlined,
+                    color: Colors.red[700],
+                    size: 28.0,
+                  ),
+                  const SizedBox(
+                    height: 4.0,
+                  ),
+                  const Text(
+                    ' Expense',
+                    style: TextStyle(
+                      fontSize: 20.0,
+                    ),
+                  ),
+                ],
               ),
-              const SizedBox(
-                height: 4.0,
-              ),
-              const Text(
-                'Expense',
+              Text(
+                '- $value',
                 style: TextStyle(
-                  fontSize: 20.0,
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.red[700]
                 ),
               ),
             ],
           ),
-          Text(
-            '- $value',
-            style: TextStyle(
-                fontSize: 24.0,
-                fontWeight: FontWeight.w700,
-                color: Colors.red[700]
-            ),
-          ),
-        ],
-      ),
+        ),
+        const SizedBox(height: 10.0,)
+      ],
     );
   }
 
   Widget incomeTile(int value, String note) {
-    return Container(
-      padding: const EdgeInsets.all(18.0),
-      margin: const EdgeInsets.only(
-          right: 8.0,
-          left: 8.0
-      ),
-      decoration: BoxDecoration(
-        color: Colors.white70,
-        borderRadius: BorderRadius.circular(8.0),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Row(
+    return Column(
+      children: [
+        Container(
+          padding: const EdgeInsets.all(18.0),
+          margin: const EdgeInsets.only(
+              right: 8.0,
+              left: 8.0
+          ),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(8.0),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Icon(
-                Icons.arrow_circle_down_outlined,
-                color: Colors.green[700],
-                size: 28.0,
+              Row(
+                children: [
+                  Icon(
+                    Icons.arrow_circle_down_outlined,
+                    color: Colors.green[700],
+                    size: 28.0,
+                  ),
+                  const SizedBox(
+                    height: 4.0,
+                  ),
+                  const Text(
+                    ' Income',
+                    style: TextStyle(
+                      fontSize: 20.0,
+                    ),
+                  ),
+                ],
               ),
-              const SizedBox(
-                height: 4.0,
-              ),
-              const Text(
-                'Income',
+              Text(
+                '+ $value',
                 style: TextStyle(
-                  fontSize: 20.0,
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.green[700]
                 ),
               ),
             ],
           ),
-          Text(
-            '+ $value',
-            style: TextStyle(
-                fontSize: 24.0,
-                fontWeight: FontWeight.w700,
-                color: Colors.green[700]
-            ),
-          ),
-        ],
-      ),
+        ),
+        const SizedBox(height: 10.0,),
+      ],
     );
   }
 

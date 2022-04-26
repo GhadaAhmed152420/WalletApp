@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:wallet_app/views/home.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -9,6 +10,13 @@ void main()async {
 
   await Hive.openBox('transaction');
 
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarBrightness: Brightness.dark,
+
+    ),
+  );
 
   runApp(const MyApp());
 }
