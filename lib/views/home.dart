@@ -58,8 +58,13 @@ class _HomePageState extends State<HomePage> {
                     child: Column(
                       children: [
                         Image.asset('images/Research paper-amico.png'),
-                        const SizedBox(height: 20.0,),
-                        const Text('No values found !', style: TextStyle(color: Colors.grey),),
+                        const SizedBox(
+                          height: 20.0,
+                        ),
+                        const Text(
+                          'No values found !',
+                          style: TextStyle(color: Colors.grey),
+                        ),
                       ],
                     ),
                   ),
@@ -82,36 +87,35 @@ class _HomePageState extends State<HomePage> {
                               Padding(
                                 padding: EdgeInsets.only(bottom: 8.0),
                                 child: Text(
-                                  'Hello!',
+                                  'Hi, Ghada',
                                   style: TextStyle(
-                                    fontSize: 24.0,
-                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16.0,
+                                    color: Colors.grey,
                                   ),
                                 ),
                               ),
                               Text(
-                                'Ghada Ahmed ',
+                                'Welcome back 👏 ',
                                 style: TextStyle(
-                                  fontSize: 14.0,
-                                  color: Colors.grey,
+                                  fontSize: 24.0,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ],
                           ),
                           const Spacer(),
-                          Stack(children: const [
-                            Padding(
-                              padding: EdgeInsets.all(8.0),
-                              child: Icon(Icons.notifications_none),
-                            ),
-                            Align(
-                              alignment: Alignment.topLeft,
-                              child: CircleAvatar(
-                                radius: 5.0,
-                                backgroundColor: Colors.red,
-                              ),
-                            )
-                          ],),
+                          Stack(
+                            children: const [
+                              Icon(Icons.notifications_none),
+                              Positioned(
+                                  left: 15.0,
+                                  child: Icon(
+                                    Icons.brightness_1,
+                                    size: 9.0,
+                                    color: Colors.red,
+                                  )),
+                            ],
+                          ),
                         ],
                       )),
                   Container(
@@ -209,7 +213,6 @@ class _HomePageState extends State<HomePage> {
                           )
                         ])),
                   ),
-
                   const Padding(
                     padding: EdgeInsets.all(12.0),
                     child: Text(
@@ -228,11 +231,11 @@ class _HomePageState extends State<HomePage> {
                       itemBuilder: (context, index) {
                         Map dataAtIndex = snapshot.data![index];
                         if (dataAtIndex['type'] == 'Income') {
-                          return vm.incomeTile(
-                              dataAtIndex['amount'], dataAtIndex['note']);
+                          return vm.incomeTile(dataAtIndex['amount'],
+                              dataAtIndex['note'], dataAtIndex['date']);
                         } else {
-                          return vm.expenseTile(
-                              dataAtIndex['amount'], dataAtIndex['note']);
+                          return vm.expenseTile(dataAtIndex['amount'],
+                              dataAtIndex['note'], dataAtIndex['date']);
                         }
                       }),
                 ],

@@ -1,12 +1,15 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
+import 'add_transaction_view_model.dart';
+
 class HomeViewModel {
   int totalBalance = 0;
   int totalIncome = 0;
   int totalExpense = 0;
   List<FlSpot> dataSet = [];
   DateTime today = DateTime.now();
+  var vm = AddTransactionViewModel();
 
   Widget cardIncome(String value) {
     return Row(
@@ -107,7 +110,7 @@ class HomeViewModel {
     });
   }
 
-  Widget expenseTile(int value, String note) {
+  Widget expenseTile(int value, String note, DateTime date) {
     return Column(
       children: [
         Container(
@@ -125,19 +128,35 @@ class HomeViewModel {
             children: [
               Row(
                 children: [
-                  Icon(
-                    Icons.arrow_circle_up_outlined,
-                    color: Colors.red[700],
-                    size: 28.0,
+                  Padding(
+                    padding: const EdgeInsets.only(right: 8.0),
+                    child: Icon(
+                      Icons.arrow_circle_up_outlined,
+                      color: Colors.red[700],
+                      size: 28.0,
+                    ),
                   ),
                   const SizedBox(
                     height: 4.0,
                   ),
-                  const Text(
-                    ' Expense',
-                    style: TextStyle(
-                      fontSize: 20.0,
-                    ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        note,
+                        style: const TextStyle(
+                          fontSize: 20.0,
+                        ),
+                      ),
+                      const SizedBox(height: 5.0,),
+                      Text(
+                        '${date.day} ${vm.months[date.month - 1]}',
+                        style: const TextStyle(
+                            fontSize: 12.0,
+                            color: Colors.grey
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -157,7 +176,7 @@ class HomeViewModel {
     );
   }
 
-  Widget incomeTile(int value, String note) {
+  Widget incomeTile(int value, String note, DateTime date) {
     return Column(
       children: [
         Container(
@@ -175,19 +194,35 @@ class HomeViewModel {
             children: [
               Row(
                 children: [
-                  Icon(
-                    Icons.arrow_circle_down_outlined,
-                    color: Colors.green[700],
-                    size: 28.0,
+                  Padding(
+                    padding: const EdgeInsets.only(right: 8.0),
+                    child: Icon(
+                      Icons.arrow_circle_down_outlined,
+                      color: Colors.green[700],
+                      size: 28.0,
+                    ),
                   ),
                   const SizedBox(
                     height: 4.0,
                   ),
-                  const Text(
-                    ' Income',
-                    style: TextStyle(
-                      fontSize: 20.0,
-                    ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        note,
+                        style: const TextStyle(
+                          fontSize: 20.0,
+                        ),
+                      ),
+                      const SizedBox(height: 5.0,),
+                      Text(
+                        '${date.day} ${vm.months[date.month - 1]}',
+                        style: const TextStyle(
+                          fontSize: 12.0,
+                          color: Colors.grey
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
